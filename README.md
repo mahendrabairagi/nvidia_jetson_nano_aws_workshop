@@ -114,6 +114,9 @@ Role: Choose an existing role
 Click Create Function
 Replace the default script with the [inference script](inference-lambda.py)
 
+Download ![](test.jpg) on your local machine. Add downloaded test.jpg to the lambda function. Select upload file in lambda console, selected test.jpg.
+This test image will be used by lambda function as input for ML model.
+
 #### 2.4  Set machine leaning at edge deployment
 - Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Greengrass
 - Go to AWS IoT Greengrass console
