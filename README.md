@@ -114,8 +114,7 @@ Name the function: e.g. interface-lambda
 Role: Choose an existing role
 [Note: You may need to create new role, give basic execution permissions, choose default)
 
-Click Create Function
-Replace the default script with the [inference script](inference-lambda.py)
+Click Create Function with default code. Once lambda function is created, open it again and replace the default script with the [inference script](inference-lambda.py)
 
 Download ![](test.jpg) on your local machine. Add downloaded test.jpg to the lambda function. Select upload file in lambda console, selected test.jpg.
 This test image will be used by lambda function as input for ML model.
