@@ -14,7 +14,8 @@ Let's start with Step 1:
 ### Step 1: Download trained model
 In this lab we will use Amazon SageMaker trained model. Model is trained using steps in https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano  Model detects different types of Lego Dinosaurs images.  Mode is already converted using SageMaker Neo for Jetson Nano platform.
 
-Download model from : link
+Download model from : [link](https://mahendra-ml-models.s3.amazonaws.com/model.tar.gz)
+
 **** Upload the model to your own S3 bucket *****. This will be used in step 2.4 below.
 
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
