@@ -1,13 +1,17 @@
 # AWS ML@Edge with NVIDIA Jetson Nano
 
-In this project I will walkthrough how to create ML@Edge computer vision application. This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano.
+Goal of this workshop is to demostrate how to deploy AWS SageMaker trained image classification model on to Nvidia Jetson Nano using AWS IoT Greengrass.
+Deployed edge application (IoT Greengrass lambda) on the Nano will detect different types of Lego Dinosaurs. Here is a sample image.
 
-In this workshop we will use AWS SageMaker trained model, and deploy it on Jetson nano.
+![](2_Stegosaurus_012.jpg)
+
+This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano.
+
+Here are the steps we will follow:
 
 ### Step 1: Download AWS SageMaker trained model
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
 ### Step 3: Visualize and analyze video analytics from the model inference on Jetson Nano
-
 
 Let's start with Step 1:
 
