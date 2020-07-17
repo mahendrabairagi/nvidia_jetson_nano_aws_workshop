@@ -6,6 +6,7 @@ Deployed edge application (IoT Greengrass lambda) on the Nano will detect differ
 ![](2_Stegosaurus_012.jpg)
 
 This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano.
+Link to the Jetbot Nano image used for this repo - https://drive.google.com/file/d/1xCARf2FUwZ2hrzIYLfHc_SdtPabxs7VS/view?usp=sharing
 
 Here are the steps we will follow:
 
