@@ -54,6 +54,7 @@ Run the following commands on your Nano to create greengrass user and group:
 ```
 $ sudo adduser --system ggc_user
 $ sudo addgroup --system ggc_group
+$ sudo usermod -a -G video ggc_user
 ```
 
 Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
