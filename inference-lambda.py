@@ -2,15 +2,13 @@
 import time
 import datetime
 import numpy as np
-import cv2
 import boto3
-from jetbot import Camera
 from dlr import DLRModel
 import greengrasssdk
+import PIL.Image
 
 mqtt_client = greengrasssdk.client('iot-data')
 model_resource_path =  ('/ml_model')
-#model_resource_path = '/home/jetbot/projects/dino/dino_model'
 dlr_model = DLRModel(model_resource_path, 'gpu')
 
 cloudwatch = boto3.client('cloudwatch')
@@ -58,14 +56,24 @@ def send_mqtt_message(message):
     mqtt_client.publish(topic='dino-detect',
                         payload=message)
 
-gst_str = 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (3280, 3280, 21, 224,224)
-cap = cv2.VideoCapture(gst_str, cv2.CAP_GSTREAMER)
+file_name = "test.jpg"
+# test image
+image = PIL.Image.open(file_name)
+image = np.asarray(image.resize((224, 224)))
 
+# Normalize
+mean_vec = np.array([0.485, 0.456, 0.406])
+stddev_vec = np.array([0.229, 0.224, 0.225])
+image = (image/255- mean_vec)/stddev_vec
+
+# Transpose
+if len(image.shape) == 2:  # for greyscale image
+    image = np.expand_dims(image, axis=2)
+    
+image = np.rollaxis(image, axis=2, start=0)[np.newaxis, :]
 
 while True:
-    re, img = cap.read()
-    probs, classes = predict(img) 
-
+    probs, classes = predict(image) 
     msg = "Start..."
     s3url = ""
     if probs > 0.6 and prev_class != classes:
