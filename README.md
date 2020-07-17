@@ -116,7 +116,8 @@ Role: Choose an existing role
 
 Click Create Function with default code. Once lambda function is created, open it again and replace the default script with the [inference script](inference-lambda.py)
 
-Download ![](test.jpg) on your local machine. Add downloaded test.jpg to the lambda function. Select upload file in lambda console, selected test.jpg.
+
+Download ![test.jpg](https://mahendra-ml-models.s3.amazonaws.com/test.jpg) on nano (you can ``` wget https://mahendra-ml-models.s3.amazonaws.com/test.jpg ```). Add downloaded test.jpg image in "/" folder or folder of your choice. Make sure this folder matches with interface-lambda code line# .
 This test image will be used by lambda function as input for ML model.
 
 #### 2.4  Set machine leaning at edge deployment
