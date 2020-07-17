@@ -60,16 +60,18 @@ $ sudo usermod -a -G video ggc_user
 Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
 After downloading your unique security resource keys to your Jetson that were created in this step, proceed to step below. If you created and downloaded these keys on machine other than Jetson Nano then you will need to copy these to Jetson Nano. You can use SCP to transfer files from your desktop to Jetson Nano.
 
-Download the AWS IoT Greengrass Core Software (v1.9.1) for ARMv8 (aarch64):
+Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarch64):
+
+(please see latest version here https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-core-download-tab)
 
 ```
-$ wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.9.1/greengrass-linux-aarch64-1.9.1.tar.gz
+$ wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.2/greengrass-linux-aarch64-1.10.2.tar.gz
 ```
 
 Following this page (starting with step #4 from that page), extract Greengrass core and your unique security keys on your Nano:
 
 ```
-$ sudo tar -xzvf greengrass-linux-aarch64-1.9.1.tar.gz -C /
+$ sudo tar -xzvf greengrass-linux-aarch64-1.10.2.tar.gz -C /
 $ sudo tar -xzvf <hash>-setup.tar.gz -C /greengrass   # these are the security keys downloaded above
 ```
 
