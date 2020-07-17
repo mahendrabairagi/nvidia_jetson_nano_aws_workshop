@@ -56,7 +56,7 @@ def send_mqtt_message(message):
     mqtt_client.publish(topic='dino-detect',
                         payload=message)
 
-file_name = "test.jpg"
+file_name = "/test.jpg"
 # test image
 image = PIL.Image.open(file_name)
 image = np.asarray(image.resize((224, 224)))
