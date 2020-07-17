@@ -86,6 +86,8 @@ $ cd /greengrass/certs/
 $ sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
 ```
 
+Install Greengrass SDK for python. Please refer https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-functions.html
+
 Start greengrass core on your Nano:
 
 ```
@@ -97,13 +99,14 @@ You should get a message in your terminal "Greengrass successfully started with 
 
 #### 2.3 Setup and configure Inference code using AWS Lambda
 
+
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Lambda
 
 Click 'Create function'
 
 Choose 'Blueprints'
 
-In the search bar, type “greengrass-hello-world” and hit Enter
+In the search bar, type “hello-world” and hit Enter
 
 Choose the python blueprint and click Configure
 
