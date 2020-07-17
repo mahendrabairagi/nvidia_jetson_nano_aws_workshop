@@ -87,5 +87,5 @@ while True:
         push_to_cloudwatch(dino_names[classes], round(probs.item(), 2))
 
 # The lambda to be invoked in Greengrass
-def handler(event, context):
+def lambda_handler(event, context):
     pass
