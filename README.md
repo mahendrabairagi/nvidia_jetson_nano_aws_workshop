@@ -27,7 +27,7 @@ This step will need
 - 2.1 Installing SageMaker Neo runtime
 - 2.2 Installing AWS IoT Greengrass 
 - 2.3 Setup and configure Inference code using AWS Lambda
-- 2.4 Set machine leaning at edge deployment
+- 2.4 Set machine learning at edge deployment
 - 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - 2.6 Run model, check inference
 
