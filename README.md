@@ -31,11 +31,12 @@ SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run 
 - Go to SageMaker Neo git https://neo-ai-dlr.readthedocs.io/en/latest/install.html
 - Check step under "Installing Pre-built DLR Wheels for Your Device"
 - You can install SageMaker Neo using  "sudo pip install  'link-to-matching-wheel-on-S3'"
-- link-to-matching-wheel-on-S3 is for Jetson Nano, look for link such as https://s3-us-west-2.amazonaws.com/neo-ai-dlr-release/v1.0/jetsonnano-aarch64-cu10-ubuntu18_04-glibc2_27-libstdcpp3_4/dlr-1.0-py2.py3-none-any.whl
-- Download this .whl file
+- link-to-matching-wheel-on-S3 is for Jetson Nano, look for link such as
+https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz
+- Download this file, unzip the .whl file
 - log into Jetbot dekstop or SSH to jetbot.  Install this .whl file using command such as 
 ```
-sudo pip install dlr-1.0-py2.py3-none-any.whl
+sudo pip install dlr****-*****.whl
 ```
 
 - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
