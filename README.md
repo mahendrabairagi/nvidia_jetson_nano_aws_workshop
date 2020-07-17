@@ -1,6 +1,7 @@
 # AWS ML@Edge with NVIDIA Jetson Nano
 
-In this project I will walkthrough how to create ML@Edge computer vision application. This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano
+In this project I will walkthrough how to create ML@Edge computer vision application. This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano.
+
 In this workshop we will use AWS SageMaker trained model, and deploy it on Jetson nano.
 
 ### Step 1: Download AWS SageMaker trained model
@@ -8,11 +9,10 @@ In this workshop we will use AWS SageMaker trained model, and deploy it on Jetso
 ### Step 3: Visualize and analyze video analytics from the model inference on Jetson Nano
 
 
-
 Let's start with Step 1:
 
 ### Step 1: Download trained model
-In this lab we will use Amazon SageMaker trained model. Model is trained using steps in https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano  Model detects different types of Lego Dinosaurs images.  Mode is already converted using SageMaker Neo for Jetson Nano platform.
+In this lab we will use Amazon SageMaker trained model. Model is trained using steps in https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano . Model detects different types of Lego Dinosaurs images.  Model is already converted using SageMaker Neo for Jetson Nano platform.
 
 Download model from : [link](https://mahendra-ml-models.s3.amazonaws.com/model.tar.gz)
 
