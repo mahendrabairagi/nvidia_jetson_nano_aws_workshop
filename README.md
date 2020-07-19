@@ -34,16 +34,14 @@ This step will need
 - 2.6 Run model, check inference
 
 #### 2.1 Installing SageMaker Neo runtime
-SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run models compiled using SageMaker Neo in the cloud. In our model training step, last step is to compile model using SageMaker Neo. In following steps we will install SageMaker Neo Runtime.
-- Go to SageMaker Neo git https://neo-ai-dlr.readthedocs.io/en/latest/install.html
-- Check step under "Installing Pre-built DLR Wheels for Your Device"
-- You can install SageMaker Neo using  "sudo pip install  'link-to-matching-wheel-on-S3'"
-- link-to-matching-wheel-on-S3 is for Jetson Nano, look for link such as
+SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run models compiled using SageMaker Neo in the cloud. You can find more info here. https://neo-ai-dlr.readthedocs.io/en/latest/install.html
+
+- For the purposeof this workshop we created a .whl that can be downlaoded from here
 https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz
-- Download this file, unzip the .whl file
-- log into Jetbot dekstop or SSH to jetbot.  Install this .whl file using command such as 
+- Download this file 
+- log into Jetbot dekstop or SSH to jetbot.  Install this .tgz file using command such as 
 ```
-sudo pip install dlr****-*****.whl
+sudo pip install dlr****-*****.tgz
 ```
 
 - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
