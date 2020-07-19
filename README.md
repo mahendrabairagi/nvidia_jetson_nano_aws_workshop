@@ -18,7 +18,7 @@ Let's start with Step 1:
 In this lab we will use sample model provides by SageMaker Neo model. Model detects different types of dog breeds.
 Model is already converted using SageMaker Neo for Jetson Nano platform.
 
-Download model from :this repor[link]resnet18_v1.tar.gz) or[link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
+Download model from [link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
 
 **** Upload the model to your own S3 bucket *****. This will be used in step 2.4 below.
 
