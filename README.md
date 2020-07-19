@@ -69,7 +69,6 @@ After downloading your unique security resource keys to your Jetson that were cr
 Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarch64):
 
 (please see latest version here https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-core-download-tab)
-
 ```
 $ wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.2/greengrass-linux-aarch64-1.10.2.tar.gz
 ```
@@ -87,9 +86,6 @@ Download AWS ATS endpoint root certificate (CA):
 $ cd /greengrass/certs/
 $ sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
 ```
-
-Install Greengrass SDK for python. Please refer https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-functions.html
-
 Start greengrass core on your Nano:
 
 ```
@@ -106,21 +102,15 @@ Go to [AWS Management console](https://console.aws.amazon.com/console/home?regio
 
 Click 'Create function'
 
-Choose 'Blueprints'
+Choose 'Author from scratch'
 
-In the search bar, type “hello-world” and hit Enter
-
-Choose the python blueprint and click Configure
-
-Name the function: e.g. interface-lambda
+Name the function: e.g. jetson-nano-workshop
 Role: Choose an existing role
 [Note: You may need to create new role, give basic execution permissions, choose default)
 
-Click Create Function with default code. Once lambda function is created, open it again and replace the default script with the [inference script](inference-lambda.py)
+Click Create Function with default code. Once lambda function is created, open it again and upload ![](lambda.zip) from this repo. You will need to download lambda.zip to your local machine first.
 
-
-Download ![test.jpg](https://mahendra-ml-models.s3.amazonaws.com/test.jpg) on nano (you can ``` wget https://mahendra-ml-models.s3.amazonaws.com/test.jpg ```). Add downloaded test.jpg image in "/" folder or folder of your choice. Make sure this folder matches with interface-lambda code line#59.
-This test image will be used by lambda function as input for ML model.
+[optiona] - You can open the interface-lambda.py a code and get familiar. It uses test.jpg at line#59. This test image will be used by lambda function as input for ML model.
 
 #### 2.4  Set machine leaning at edge deployment
 - Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Greengrass
