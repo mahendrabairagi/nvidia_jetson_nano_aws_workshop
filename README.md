@@ -41,12 +41,14 @@ https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz
 - Download this file 
 - log into Jetbot dekstop or SSH to jetbot.  Install this .tgz file using command such as 
 ```
-sudo pip install dlr****-*****.tgz
+sudo pip3 install dlr****-*****.tgz
 ```
+**** If custom neo wheel doenst work then please follow insturctions to build and install neo dlr for jetson Nano. https://neo-ai-dlr.readthedocs.io/en/latest/install.html#building-for-nvidia-gpu-on-jetson-devices
 
-- also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
+
+ - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
 ```
-sudo pip install boto3
+sudo pip3 install boto3
 ```
 
 #### 2.2 Installing AWS IoT Greengrass 
