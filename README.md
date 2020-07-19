@@ -55,9 +55,9 @@ First setup Setup your Jetson Nano Developer Kit with the SD card image.
 Run the following commands on your Nano to create greengrass user and group:
 
 ```
-$ sudo adduser --system ggc_user
-$ sudo addgroup --system ggc_group
-$ sudo usermod -a -G video ggc_user
+sudo adduser --system ggc_user
+sudo addgroup --system ggc_group
+sudo usermod -a -G video ggc_user
 ```
 
 Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
@@ -67,27 +67,27 @@ Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarc
 
 (please see latest version here https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-core-download-tab)
 ```
-$ wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.2/greengrass-linux-aarch64-1.10.2.tar.gz
+wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.2/greengrass-linux-aarch64-1.10.2.tar.gz
 ```
 
 Extract Greengrass core and your unique security keys on your Nano:
 
 ```
-$ sudo tar -xzvf greengrass-linux-aarch64-1.10.2.tar.gz -C /
-$ sudo tar -xzvf <hash>-setup.tar.gz -C /greengrass   # these are the security keys downloaded while setting up greengrass
+sudo tar -xzvf greengrass-linux-aarch64-1.10.2.tar.gz -C /
+sudo tar -xzvf <hash>-setup.tar.gz -C /greengrass   # these are the security keys downloaded while setting up greengrass
 ```
 
 Download AWS ATS endpoint root certificate (CA):
 
 ```
-$ cd /greengrass/certs/
-$ sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
+cd /greengrass/certs/
+sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
 ```
 Start greengrass core on your Nano:
 
 ```
-$ cd /greengrass/ggc/core/
-$ sudo ./greengrassd start
+cd /greengrass/ggc/core/
+sudo ./greengrassd start
 ```
 
 You should get a message in your terminal "Greengrass successfully started with PID: xxx"
