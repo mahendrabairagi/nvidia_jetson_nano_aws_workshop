@@ -1,11 +1,8 @@
 # AWS ML@Edge with NVIDIA Jetson Nano
 
-Goal of this workshop is to demostrate how to deploy AWS SageMaker trained image classification model on to Nvidia Jetson Nano using AWS IoT Greengrass.
-Deployed edge application (IoT Greengrass lambda) on the Nano will detect different types of Lego Dinosaurs. Here is a sample image.
+Goal of this workshop is to demostrate how to deploy image classification model (resnet) on to Nvidia Jetson Nano using AWS IoT Greengrass.
+Deployed edge application (IoT Greengrass lambda) on the Nano will detect different types of dogs.
 
-![](2_Stegosaurus_012.jpg)
-
-This repo is short and updated version of https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano.
 Link to the Jetbot Nano image used for this repo - https://drive.google.com/file/d/1xCARf2FUwZ2hrzIYLfHc_SdtPabxs7VS/view?usp=sharing
 or http://d2izi96gg1mdrw.cloudfront.net/jetson/nano/awsnv_nano.img.zip
 
@@ -13,14 +10,15 @@ Here are the steps we will follow:
 
 ### Step 1: Download AWS SageMaker trained model
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
-### Step 3: Visualize and analyze video analytics from the model inference on Jetson Nano
+### Step 3: Test the model inference on AWS IoT console
 
 Let's start with Step 1:
 
 ### Step 1: Download trained model
-In this lab we will use Amazon SageMaker trained model. Model is trained using steps in https://github.com/mahendrabairagi/AWS_ML_At_Edge_With_NVIDIA_Jetson_Nano . Model detects different types of Lego Dinosaurs images.  Model is already converted using SageMaker Neo for Jetson Nano platform.
+In this lab we will use sample model provides by SageMaker Neo model. Model detects different types of dog breeds.
+Model is already converted using SageMaker Neo for Jetson Nano platform.
 
-Download model from : [link](https://mahendra-ml-models.s3.amazonaws.com/model.tar.gz)
+Download model from :this repor[link]resnet18_v1.tar.gz) or[link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
 
 **** Upload the model to your own S3 bucket *****. This will be used in step 2.4 below.
 
@@ -114,8 +112,8 @@ Click Create Function with default code. Once lambda function is created, open i
 #### 2.4  Set machine leaning at edge deployment
 - Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Greengrass
 - Go to AWS IoT Greengrass console
-- Choose the greengrass group you created in step 3.2
-- Select lambda, choose lambda function you created in 3.3
+- Choose the greengrass group you created in step 2.2
+- Select lambda, choose lambda function you created in 2.3
 - make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 ![](lambda_setup.png)
@@ -133,7 +131,7 @@ Under "Settings", scroll down, you will see option to setup log level. Setup Gre
 #### 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - Go back to AWS IoT Greengrass console
 - We will need to send messages from NVIDIA Jetson to cloud. so, we need to setup message subscription per screenshot below.
-Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "dino-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
+Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "neo-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
 ![](subscription.png)
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
@@ -158,25 +156,6 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 - to start and stop greengrass,  cd to /greengrass/ggc/core and then ./greengrassd start to start and ./greengrassd to stop
 
 
-### Step 3: Visualize and analyze video analytics from the model inference on Jetson Nano
-The lambda code running on NVIDIA Jetson Nano device sends IoT messages back to cloud. These messages are sent to AWS CloudWatch. CloudWatch has built-in dashboard. We will use the built in dashboard to visualize data coming from the device.
-
-Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Cloudwatch
-
-Create a dashboard called “aws-nvidia-jetson-nano-dashboard-your-name”
-
-Choose Line in the widget
-
-Under Custom Namespaces, select “string”, “Metrics with no dimensions”, and then select all metrics.
-
-Next, set “Auto-refresh” to the smallest interval possible (1h), and change the “Period” to whatever works best for you (1 second or 5 seconds)
-
-You will see analysis on number of times different dinosaurs detected by NVIDIA Jetson Nano
-
-NOTE: These metrics will only appear once they have been sent to Cloudwatch via the Lambda code running on edge. It may take some time for them to appear after your model is deployed and running locally. If they do not appear, then there is a problem somewhere in the pipeline.
-
-### With this we have come to the end of the session. As part of building this project, you learnt the following:
-
 1.	Setup and configure AWS IoT Greengrass
 2.	Deploy the inference lambda function and model on NVIDIA Jetson Nano
-3.	Analyze model inference data using AWS CloudWatch
+3.	Test the model inference data using AWS IoT dashboard
