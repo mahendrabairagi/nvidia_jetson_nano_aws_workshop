@@ -1,7 +1,7 @@
 # AWS ML@Edge with NVIDIA Jetson Nano
 
-Goal of this workshop is to demostrate how to deploy image classification model (resnet) on to Nvidia Jetson Nano using AWS IoT Greengrass.
-Deployed edge application (IoT Greengrass lambda) on the Nano will detect different types of dogs.
+Goal of this workshop is to demostrate how to deploy image classification model (resnet18) on to Nvidia Jetson Nano using AWS IoT Greengrass.
+Deployed edge application (IoT Greengrass lambda) on the Nano will classify images based on imagenet classification.
 
 Link to the Jetbot Nano image used for this repo - https://drive.google.com/file/d/1xCARf2FUwZ2hrzIYLfHc_SdtPabxs7VS/view?usp=sharing
 or http://d2izi96gg1mdrw.cloudfront.net/jetson/nano/awsnv_nano.img.zip
@@ -15,7 +15,7 @@ Here are the steps we will follow:
 Let's start with Step 1:
 
 ### Step 1: Download trained model
-In this lab we will use sample model provides by SageMaker Neo model. Model detects different types of dog breeds.
+In this lab we will use sample model provides by SageMaker Neo model.The model is resnet18, performs general purpose image classification (based on imagenet)
 Model is already converted using SageMaker Neo for Jetson Nano platform.
 
 Download model from [link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
