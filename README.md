@@ -27,31 +27,30 @@ Download model from : [link](https://mahendra-ml-models.s3.amazonaws.com/model.t
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
 This step will need
 - 2.1 Installing SageMaker Neo runtime
-- 2.2 Installing AWS IoT Greengrass 
+- 2.2 Installing AWS IoT Greengrass
 - 2.3 Setup and configure Inference code using AWS Lambda
 - 2.4 Set machine learning at edge deployment
 - 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - 2.6 Run model, check inference
 
 #### 2.1 Installing SageMaker Neo runtime
-SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run models compiled using SageMaker Neo in the cloud. You can find more info here. https://neo-ai-dlr.readthedocs.io/en/latest/install.html
+SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run models compiled using SageMaker Neo in the cloud. In our model training step, last step is to compile model using SageMaker Neo. In following steps we will install SageMaker Neo Runtime. Because there is no official wheel for Jetpack 4.4 just yet, we will install an unofficial pre-built wheel to save time compiling it yourself.
 
-- For the purposeof this workshop we created a .whl that can be downlaoded from here
-https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz
-- Download this file 
-- log into Jetbot dekstop or SSH to jetbot.  Install this .tgz file using command such as 
+- Download the file  
+https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz to your Nano
+- Download this file, untar the .tgz file
+- log into Jetbot desktop or SSH to your Nano.  Install this .whl file using commands:
 ```
-sudo pip3 install dlr****-*****.tgz
+tar xzvf neo-prebuilt.tgz
+sudo pip install neo-ai-dlr/python/dist/dlr-1.2.0-py3-none-any.whl
 ```
-**** If custom neo wheel doenst work then please follow insturctions to build and install neo dlr for jetson Nano. https://neo-ai-dlr.readthedocs.io/en/latest/install.html#building-for-nvidia-gpu-on-jetson-devices
-
 
  - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
 ```
 sudo pip3 install boto3
 ```
 
-#### 2.2 Installing AWS IoT Greengrass 
+#### 2.2 Installing AWS IoT Greengrass
 
 First setup Setup your Jetson Nano Developer Kit with the SD card image.
 
@@ -121,7 +120,7 @@ Click Create Function with default code. Once lambda function is created, open i
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 ![](lambda_setup.png)
 - In memory, set it to 700mb+
-- In resources, add ML model as per below 
+- In resources, add ML model as per below
 , Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. Select bucket first from dropdown box and then model file
 ![](ml.png)
 
@@ -134,7 +133,7 @@ Under "Settings", scroll down, you will see option to setup log level. Setup Gre
 #### 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - Go back to AWS IoT Greengrass console
 - We will need to send messages from NVIDIA Jetson to cloud. so, we need to setup message subscription per screenshot below.
-Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "dino-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT. 
+Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "dino-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
 ![](subscription.png)
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
@@ -178,6 +177,6 @@ NOTE: These metrics will only appear once they have been sent to Cloudwatch via 
 
 ### With this we have come to the end of the session. As part of building this project, you learnt the following:
 
-1.	Setup and configure AWS IoT Greengrass 
+1.	Setup and configure AWS IoT Greengrass
 2.	Deploy the inference lambda function and model on NVIDIA Jetson Nano
 3.	Analyze model inference data using AWS CloudWatch
