@@ -72,11 +72,11 @@ Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarc
 $ wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.2/greengrass-linux-aarch64-1.10.2.tar.gz
 ```
 
-Following this page (starting with step #4 from that page), extract Greengrass core and your unique security keys on your Nano:
+Extract Greengrass core and your unique security keys on your Nano:
 
 ```
 $ sudo tar -xzvf greengrass-linux-aarch64-1.10.2.tar.gz -C /
-$ sudo tar -xzvf <hash>-setup.tar.gz -C /greengrass   # these are the security keys downloaded above
+$ sudo tar -xzvf <hash>-setup.tar.gz -C /greengrass   # these are the security keys downloaded while setting up greengrass
 ```
 
 Download AWS ATS endpoint root certificate (CA):
