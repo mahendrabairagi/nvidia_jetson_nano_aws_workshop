@@ -42,14 +42,13 @@ tar xzvf neo-prebuilt.tgz
 sudo pip install neo-ai-dlr/python/dist/dlr-1.2.0-py3-none-any.whl
 ```
 
- - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code to send custom metrics to CloudWatch
+ - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code.
 ```
 sudo pip3 install boto3
 ```
 
 #### 2.2 Installing AWS IoT Greengrass
-
-First setup Setup your Jetson Nano Developer Kit with the SD card image.
+Open terminal on your jetbot nano
 
 Run the following commands on your Nano to create greengrass user and group:
 
@@ -59,7 +58,7 @@ sudo addgroup --system ggc_group
 sudo usermod -a -G video ggc_user
 ```
 
-Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
+Setup your AWS account and Greengrass group (more info here https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html)
 
 Setup Greengrass:
 
@@ -91,7 +90,7 @@ Dowload certs:
 ![](download_certs.png)
 
 
-After downloading your unique security resource keys to your Jetson that were created in this step, proceed to step below. If you created and downloaded these keys on machine other than Jetson Nano then you will need to copy these to Jetson Nano. You can use SCP to transfer files from your desktop to Jetson Nano.
+After downloading your unique security resource keys to your Jetson that were created in this step, proceed to step below. If you created and downloaded these keys on machine other than Jetson Nano then you will need to copy these to Jetson Nano. You can use SCP to transfer files from your local machine to Jetson Nano.
 
 Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarch64):
 
@@ -122,7 +121,7 @@ sudo ./greengrassd start
 
 You should get a message in your terminal "Greengrass successfully started with PID: xxx"
 
-#### 2.3 Setup and configure Inference code using AWS Lambda
+#### 2.3 Setup and configure inference code using AWS Lambda
 
 
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Lambda
@@ -141,7 +140,7 @@ Click Create Function with default code. Once lambda function is created, open i
 
 ![](create_new_lamda_upload_zip.png)
 
-pulish lambda
+publish lambda
 
 ![](publish_lambda.png)
 
@@ -155,21 +154,20 @@ pulish lambda
 - Choose the greengrass group you created in step 2.2
 - Select lambda, choose lambda function you created in 2.3
 - Choose default container option
-- Make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
+- Make it the lambda long running, more info here ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 
 ![](lambda_setup.png)
 
 - In memory, set it to 700mb+
-- In resources, add ML model as per below
-, Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. Select bucket first from dropdown box and then model file
+- In resources, add ML model as per below, Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. 
+***** Select bucket first from dropdown box and then model file *****
 
 ![](create_ml_resource_1.png)
 ![](create_ml_resource_2.png)
 ![](ml-model-config.png)
 
-
-- Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. per screenshot below
+- Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. see screenshot below for reference.
 
 ![](greengrassrole.png)
 
@@ -181,7 +179,7 @@ Under "Settings", scroll down, you will see option to setup log level. Setup Gre
 ![](configure_logging_3.png)
 
 #### 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
-- make  sure Greengras is started
+- make sure Greengras is started
 
 ![](start_greengrass.png)
 
@@ -197,6 +195,7 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
 - This will take few minutes to download and deploy model
+
 ![](configure_deployment.png)
 ![](deploy.png)
 ![](successful_deployment.png)
@@ -204,11 +203,17 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 #### 2.6 Check inference
 - Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Greengrass
 - Go to AWS IoT console
+
 ![](img_3_5_1.png)
+
 - Select Test from left menu
+
 ![](img_3_5_2.png)
+
 - Add "#" in Subscribe topic, click Subscribe. This will subscribe to all IoT topics coming to Jetson Nano
+
 ![](img_3_5_3.png)
+
 - In Subscription box you will start seeing IoT messages coming from Jetson nano
 
 #### 2.7 Troubleshooting
@@ -218,6 +223,9 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 - if you get any error related to camera buffer then please run command "sudo systemctl restart nvargus-daemon" to restart related process.
 - to start and stop greengrass,  cd to /greengrass/ggc/core and then ./greengrassd start to start and ./greengrassd to stop
 
+#### Summary ####
+
+In this lab we have completed:
 
 1.	Setup and configure AWS IoT Greengrass
 2.	Deploy the inference lambda function and model on NVIDIA Jetson Nano
