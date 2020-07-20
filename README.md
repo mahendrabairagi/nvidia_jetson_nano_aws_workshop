@@ -148,6 +148,7 @@ Click Create Function with default code. Once lambda function is created, open i
 - Go to AWS IoT Greengrass console
 - Choose the greengrass group you created in step 2.2
 - Select lambda, choose lambda function you created in 2.3
+- choose default container option
 - make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 ![](lambda_setup.png)
