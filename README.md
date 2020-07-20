@@ -76,7 +76,7 @@ Create new basic lambda role or use existing role
 
 ![](attach_role.png)
 
-Use default setting:
+Distable streaming
 ![](use_default_setting.png)
 
 Create new  Greengrass Core:
