@@ -8,14 +8,14 @@ or http://d2izi96gg1mdrw.cloudfront.net/jetson/nano/awsnv_nano.img.zip
 
 Here are the steps we will follow:
 
-### Step 1: Download AWS SageMaker trained model
+### Step 1: Download trained model
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
 ### Step 3: Test the model inference on AWS IoT console
 
 Let's start with Step 1:
 
 ### Step 1: Download trained model
-In this lab we will use sample model provides by SageMaker Neo model.The model is resnet18, performs general purpose image classification (based on imagenet)
+In this lab we will use sample model provided by SageMaker Neo.The model is resnet18, performs general purpose image classification (based on imagenet)
 Model is already converted using SageMaker Neo for Jetson Nano platform.
 
 Download model from [link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
