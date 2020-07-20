@@ -190,14 +190,17 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 ![](add_subscription.png)
 
 ![](select_source_target.png)
+
 ![](select_source_target_2.png)
 
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
 - This will take few minutes to download and deploy model
 
-![](configure_deployment.png)
 ![](deploy.png)
+
+![](configure_deployment.png)
+
 ![](successful_deployment.png)
 
 #### 2.6 Check inference
