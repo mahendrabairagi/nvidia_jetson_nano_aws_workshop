@@ -148,14 +148,15 @@ Click Create Function with default code. Once lambda function is created, open i
 - Go to AWS IoT Greengrass console
 - Choose the greengrass group you created in step 2.2
 - Select lambda, choose lambda function you created in 2.3
-- choose default container option
-- make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
+- Choose default container option
+- Make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 ![](lambda_setup.png)
 - In memory, set it to 700mb+
 - In resources, add ML model as per below
 , Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. Select bucket first from dropdown box and then model file
-![](ml.png)
+![](create_ml_resource_1.png)
+![](create_ml_resource_2.png)
 
 - Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. per screenshot below
 ![](greengrassrole.png)
