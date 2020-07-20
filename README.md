@@ -176,7 +176,7 @@ pulish lambda
 - Setup Greengrass logs
 Under "Settings", scroll down, you will see option to setup log level. Setup Greengrass and lambda logs to info-level logs per screenshot below
 
-![](configure_group_logging.png![])
+![](configure_group_logging.png)
 ![](configure_group_logging_2.png)
 ![](configure_logging_3.png)
 
