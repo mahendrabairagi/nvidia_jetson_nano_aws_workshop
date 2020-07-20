@@ -220,8 +220,6 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 
 ![](select_source_target.png)
 
-![](select_source_target_2.png)
-
 ![](subscription_summary.png)
 
 - Now we are ready to deploy model, lambda and configuration.
