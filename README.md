@@ -144,7 +144,7 @@ sudo ./greengrassd start
 You should get a message in your terminal "Greengrass successfully started with PID: xxx"
 
 #### 2.3 Setup and configure inference code using AWS Lambda
-
+(optional: more info on AWS Greengrass lambda https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html)
 
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Lambda
 
@@ -161,6 +161,11 @@ Role: Choose an existing role
 Click Create Function with default code. Once lambda function is created, open it again and upload ![](lambda.zip) from this repo. You will need to download lambda.zip to your local machine first.
 
 ![](create_new_lamda_upload_zip.png)
+
+in basic settings, please change the handler per your lambda function name
+
+![](lambda-edit-basic-settings.png)
+
 
 publish lambda
 
@@ -179,7 +184,7 @@ publish lambda
 - Make it the lambda long running, more info here ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
 
-![](lambda_setup.png)
+![](create_lambda_config.png)
 
 - In memory, set it to 700mb+
 - In resources, add ML model as per below, Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. 
