@@ -61,13 +61,13 @@ sudo usermod -a -G video ggc_user
 
 Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
 
-Setp Greengrass:
+Setup Greengrass:
 
 Select default
 
 ![](setup_greengrass_group.png)
 
-Setp new Greengrass Group:
+Setup new Greengrass Group:
 
 ![](name_gg_group.png)
 
@@ -192,6 +192,7 @@ Choose "subscription" menu from left menu items, choose "source" as your lambda 
 ![](add_subscription.png)
 
 ![](select_source_target.png)
+![](select_source_target_2.png)
 
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
