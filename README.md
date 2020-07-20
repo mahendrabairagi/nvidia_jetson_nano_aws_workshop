@@ -23,12 +23,30 @@ Download model from [link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_
 
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
 This step will need
+- 2.0 Python 3.7 setup
 - 2.1 Installing SageMaker Neo runtime
 - 2.2 Installing AWS IoT Greengrass
 - 2.3 Setup and configure Inference code using AWS Lambda
 - 2.4 Set machine learning at edge deployment
 - 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - 2.6 Run model, check inference
+
+#### 2.0 Python 3.7 setup
+AWS Greengrass currently supports lambda with python v 2.7 or 3.7., but not 3.6.  The Nano image is based on 3.6, so we need to install 3.7 in parallel. Please follow these steps to setup python3.7 on nano
+
+```
+sudo apt-get install -y python3.7.8
+sudo apt-get install -y python3.7-dev
+
+#need to run following commands under root
+
+sudo su 
+python3.7 -m pip install setuptools==3.7.1
+python3.7 -m pip install setuptools --upgrade
+python3.7 -m pip install Cython
+python3.7 -m pip install numpy
+
+```
 
 #### 2.1 Installing SageMaker Neo runtime
 SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run models compiled using SageMaker Neo in the cloud. In our model training step, last step is to compile model using SageMaker Neo. In following steps we will install SageMaker Neo Runtime. Because there is no official wheel for Jetpack 4.4 just yet, we will install an unofficial pre-built wheel to save time compiling it yourself.
@@ -37,9 +55,13 @@ SageMaker Neo Runtime aka SageMaker Neo DLR is a runtime library that helps run 
 https://public-ryan.s3.amazonaws.com/jetson/nano/neo-prebuilt.tgz to your Nano
 - Download this file, untar the .tgz file
 - log into Jetbot desktop or SSH to your Nano.  Install this .whl file using commands:
+
 ```
+sudo su 
+
 tar xzvf neo-prebuilt.tgz
-sudo pip install neo-ai-dlr/python/dist/dlr-1.2.0-py3-none-any.whl
+python3.7 -m pip install neo-ai-dlr/python/dist/dlr-1.2.0-py3-none-any.whl
+
 ```
 
  - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code.
