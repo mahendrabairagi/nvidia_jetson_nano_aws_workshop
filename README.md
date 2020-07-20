@@ -64,6 +64,8 @@ Setup your AWS account and Greengrass group using this page: https://docs.aws.am
 
 Setp Greengrass:
 
+Select default
+
 ![](setup_greengrass_group.png)
 
 Setp new Greengrass Group:
@@ -71,6 +73,7 @@ Setp new Greengrass Group:
 ![](name_gg_group.png)
 
 Attache Role:
+Create new basic lambda role or use existing role
 
 ![](attach_role.png)
 
