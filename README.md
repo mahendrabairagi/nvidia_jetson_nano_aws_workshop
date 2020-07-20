@@ -61,6 +61,32 @@ sudo usermod -a -G video ggc_user
 ```
 
 Setup your AWS account and Greengrass group using this page: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
+
+Setp Greengrass:
+
+![](setup_greengrass_group.png)
+
+Setp new Greengrass Group:
+
+![](name_gg_group.png)
+
+Attache Role:
+
+![](attach_role.png)
+
+Use default setting:
+![](use_default_setting.png)
+
+Create new  Greengrass Core:
+
+![](create_new_gg_core.png)
+
+![](create_new_gg_core_name.png)
+
+Dowload certs:
+![](download_certs.png)
+
+
 After downloading your unique security resource keys to your Jetson that were created in this step, proceed to step below. If you created and downloaded these keys on machine other than Jetson Nano then you will need to copy these to Jetson Nano. You can use SCP to transfer files from your desktop to Jetson Nano.
 
 Download the AWS IoT Greengrass Core Software (1.10.2 or latest) for ARMv8 (aarch64):
@@ -105,7 +131,11 @@ Name the function: e.g. jetson-nano-workshop
 Role: Choose an existing role
 [Note: You may need to create new role, give basic execution permissions, choose default)
 
+![](create_new_lambda.png)
+
 Click Create Function with default code. Once lambda function is created, open it again and upload ![](lambda.zip) from this repo. You will need to download lambda.zip to your local machine first.
+
+![](create_new_lamda_upload_zip.png)
 
 [optional] - You can open the interface-lambda.py a code and get familiar. It uses test.jpg at line#59. This test image will be used by lambda function as input for ML model.
 
