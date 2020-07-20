@@ -167,6 +167,9 @@ Under "Settings", scroll down, you will see option to setup log level. Setup Gre
 ![](logging.png)
 
 #### 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
+- make  sure Greengras is started
+![](start_greengrass.png)
+
 - Go back to AWS IoT Greengrass console
 - We will need to send messages from NVIDIA Jetson to cloud. so, we need to setup message subscription per screenshot below.
 Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "neo-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
