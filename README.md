@@ -214,13 +214,15 @@ Under "Settings", scroll down, you will see option to setup log level. Setup Gre
 
 - Go back to AWS IoT Greengrass console
 - We will need to send messages from NVIDIA Jetson to cloud. so, we need to setup message subscription per screenshot below.
-Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "neo-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
+Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one used in the lambda code i.e. "neo-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
 
 ![](add_subscription.png)
 
 ![](select_source_target.png)
 
 ![](select_source_target_2.png)
+
+![](subscription_summary.png)
 
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
