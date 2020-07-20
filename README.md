@@ -158,6 +158,8 @@ Role: Choose an existing role
 
 ![](create_new_lambda.png)
 
+****Please choose Python 3.7 runtime
+
 Click Create Function with default code. Once lambda function is created, open it again and upload ![](lambda.zip) from this repo. You will need to download lambda.zip to your local machine first.
 
 ![](create_new_lamda_upload_zip.png)
