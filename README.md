@@ -141,6 +141,12 @@ Click Create Function with default code. Once lambda function is created, open i
 
 ![](create_new_lamda_upload_zip.png)
 
+pulish lambda
+
+![](publish_lambda.png)
+
+![](lambda_deployment_verson.png)
+
 [optional] - You can open the interface-lambda.py a code and get familiar. It uses test.jpg at line#59. This test image will be used by lambda function as input for ML model.
 
 #### 2.4  Set machine leaning at edge deployment
@@ -151,33 +157,48 @@ Click Create Function with default code. Once lambda function is created, open i
 - Choose default container option
 - Make it the lambda long running per doc ![https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html]
 (https://docs.aws.amazon.com/greengrass/latest/developerguide/long-lived.html)
+
 ![](lambda_setup.png)
+
 - In memory, set it to 700mb+
 - In resources, add ML model as per below
 , Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. Select bucket first from dropdown box and then model file
+
 ![](create_ml_resource_1.png)
 ![](create_ml_resource_2.png)
 ![](ml-model-config.png)
 
 
 - Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. per screenshot below
+
 ![](greengrassrole.png)
+
 - Setup Greengrass logs
 Under "Settings", scroll down, you will see option to setup log level. Setup Greengrass and lambda logs to info-level logs per screenshot below
-![](logging.png)
+
+![](configure_group_logging.png![])
+![](configure_group_logging_2.png)
+![](configure_logging_3.png)
 
 #### 2.5 Deploy machine learning at edge on NVIDIA Jetson Nano
 - make  sure Greengras is started
+
 ![](start_greengrass.png)
 
 - Go back to AWS IoT Greengrass console
 - We will need to send messages from NVIDIA Jetson to cloud. so, we need to setup message subscription per screenshot below.
 Choose "subscription" menu from left menu items, choose "source" as your lambda function and destination as "IoT Cloud", topic as one in the lambda code i.e. "neo-detect". This will route messages from lambda to IoT Cloud i.e. AWS IoT.
-![](subscription.png)
+
+![](add_subscription.png)
+
+![](select_source_target.png)
+
 - Now we are ready to deploy model, lambda and configuration.
 - From Actions menu on top right side, select "Deploy"
 - This will take few minutes to download and deploy model
+![](configure_deployment.png)
 ![](deploy.png)
+![](successful_deployment.png)
 
 #### 2.6 Check inference
 - Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Greengrass
