@@ -19,7 +19,6 @@ In this lab we will use sample model provides by SageMaker Neo model.The model i
 Model is already converted using SageMaker Neo for Jetson Nano platform.
 
 Download model from [link](https://mahendra-ml-models.s3.amazonaws.com/resnet18_v1.tar.gz)
-
 **** Upload the model to your own S3 bucket *****. This will be used in step 2.4 below.
 
 ### Step 2: Deploy model on Jetson Nano using AWS IoT Greengrass
