@@ -157,6 +157,8 @@ Click Create Function with default code. Once lambda function is created, open i
 , Select S3 bucket where optimized model (i.e. SageMaker Neo compiled) is located. Select bucket first from dropdown box and then model file
 ![](create_ml_resource_1.png)
 ![](create_ml_resource_2.png)
+![](ml-model-config.png)
+
 
 - Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. per screenshot below
 ![](greengrassrole.png)
