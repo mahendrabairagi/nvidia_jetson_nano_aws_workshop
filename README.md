@@ -35,8 +35,9 @@ This step will need
 AWS Greengrass currently supports lambda with python v 2.7 or 3.7., but not 3.6.  The Nano image is based on 3.6, so we need to install 3.7 in parallel. Please follow these steps to setup python3.7 on nano
 
 ```
-sudo apt-get install -y python3.7.8
+sudo apt-get install -y python3.7
 sudo apt-get install -y python3.7-dev
+sudo apt-get install -y python3.7-ven
 
 #need to run following commands under root
 
@@ -46,6 +47,7 @@ python3.7 -m pip install setuptools --upgrade
 python3.7 -m pip install Cython
 python3.7 -m pip install numpy
 
+#numpy install may take 5-10 mins while waiting you can move to step 2.2, open another terminal
 ```
 
 #### 2.1 Installing SageMaker Neo runtime
@@ -62,11 +64,6 @@ sudo su
 tar xzvf neo-prebuilt.tgz
 python3.7 -m pip install neo-ai-dlr/python/dist/dlr-1.2.0-py3-none-any.whl
 
-```
-
- - also install AWS Python SDK boto3, this is needed for Greengrass Lambda code.
-```
-sudo pip3 install boto3
 ```
 
 #### 2.2 Installing AWS IoT Greengrass
