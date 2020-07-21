@@ -161,7 +161,7 @@ Click Create Function with default code. Once lambda function is created, open i
 
 ![](create_new_lamda_upload_zip.png)
 
-in basic settings, please change the handler per your lambda function name
+in basic settings, please change the handler to "inference-lambda.lambda_handler"
 
 ![](lambda-edit-basic-settings.png)
 
