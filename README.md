@@ -191,7 +191,6 @@ publish lambda
 
 ![](create_ml_resource_1.png)
 ![](create_ml_resource_2.png)
-![](ml-model-config.png)
 
 - Setup Greengrass role: go to "Settings" menu on left menu items, this will open Greengrass settings. Check top part that says "Group role", select Greengrass service role. Go to AWS IAM console, go to roles, select the greengrass role and add "AmazonS3fullAccess", "CloudWatchFullAccess" and "AWSGreengrassResourceAccessRolePolicy" .. see screenshot below for reference.
 
