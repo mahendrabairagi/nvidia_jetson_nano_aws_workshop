@@ -94,7 +94,7 @@ Create new basic lambda role or use existing role
 
 ![](attach_role.png)
 
-Distable streaming
+Disable streaming
 ![](use_default_setting.png)
 
 ![](disable_stream_manager.png)
